@@ -24,7 +24,7 @@ than an error. Keep the two in sync.
 ```yaml
 classifier:
   artifact: model/classifier.joblib   # resolved relative to the config file's directory if relative
-  confidence_threshold: 0.35
+  confidence_threshold: 0.45
   max_prompt_length: 4000
 ```
 
@@ -40,11 +40,16 @@ classifier:
 ### Calibrating `confidence_threshold`
 
 There is no universally correct value -- it depends on the number of
-categories, dataset size, and classifier. With 5 balanced categories and a
-few dozen examples per category (the bundled baseline dataset), correct
-top-1 predictions commonly land in the 0.4-0.65 range, not the 0.9+ range
-you might expect from a binary classifier. Setting the threshold too high
-means every request gets classified `unknown` regardless of accuracy.
+categories, dataset size, and classifier. With 5 balanced categories and
+~340 examples per category (the bundled dataset), correct top-1
+predictions commonly land in the 0.45-0.95 range, not uniformly close to
+1.0 the way a well-separated binary classifier might. Setting the
+threshold too high means every request gets classified `unknown`
+regardless of accuracy; setting it too low lets low-confidence guesses
+through as if they were confident. `0.45` was picked by sweeping
+thresholds against `data/regression_dataset.jsonl` and taking the highest
+value that didn't yet cost any regression-set recall (see
+`training/augment_dataset.py` for how the dataset itself was generated).
 
 To recalibrate: run `training/train.py`, inspect
 `model/metadata.json -> evaluation.test.per_class`, and pick a threshold

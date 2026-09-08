@@ -18,8 +18,8 @@
     "random_state": 42
   },
   "split_sizes": {
-    "train": 122,
-    "val": 26,
-    "test": 27
+    "train": 1190,
+    "val": 255,
+    "test": 255
   }
 }

@@ -8,8 +8,8 @@
     "simple",
     "summarization"
   ],
-  "training_dataset_version": "a6340319ae59c696",
-  "training_timestamp": "2026-09-08T10:04:48.561387+00:00",
+  "training_dataset_version": "c0b038dfbf6d2dff",
+  "training_timestamp": "2026-09-08T10:39:34.798842+00:00",
   "python_version": "3.14.7",
   "dependency_versions": {
     "scikit-learn": "1.9.0",
@@ -26,8 +26,8 @@
   },
   "evaluation": {
     "validation": {
-      "accuracy": 0.8846153846153846,
-      "macro_f1": 0.8823931623931625,
+      "accuracy": 0.996078431372549,
+      "macro_f1": 0.9960780544073824,
       "labels": [
         "coding",
         "reasoning",
@@ -37,63 +37,63 @@
       ],
       "per_class": {
         "coding": {
-          "precision": 0.8,
-          "recall": 0.8,
-          "f1": 0.8,
-          "support": 5
+          "precision": 0.9807692307692307,
+          "recall": 1.0,
+          "f1": 0.9902912621359223,
+          "support": 51
         },
         "reasoning": {
           "precision": 1.0,
-          "recall": 0.8,
-          "f1": 0.8888888888888888,
-          "support": 5
+          "recall": 0.9803921568627451,
+          "f1": 0.9900990099009901,
+          "support": 51
         },
         "security": {
-          "precision": 0.8571428571428571,
+          "precision": 1.0,
           "recall": 1.0,
-          "f1": 0.9230769230769231,
-          "support": 6
+          "f1": 1.0,
+          "support": 51
         },
         "simple": {
-          "precision": 0.8,
-          "recall": 0.8,
-          "f1": 0.8,
-          "support": 5
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 51
         },
         "summarization": {
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0,
-          "support": 5
+          "support": 51
         }
       },
       "confusion_matrix": [
         [
-          4,
+          51,
           0,
           0,
-          1,
-          0
-        ],
-        [
-          0,
-          4,
-          1,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          6,
           0,
           0
         ],
         [
           1,
+          50,
           0,
           0,
-          4,
+          0
+        ],
+        [
+          0,
+          0,
+          51,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          51,
           0
         ],
         [
@@ -101,13 +101,13 @@
           0,
           0,
           0,
-          5
+          51
         ]
       ]
     },
     "test": {
-      "accuracy": 1.0,
-      "macro_f1": 1.0,
+      "accuracy": 0.9882352941176471,
+      "macro_f1": 0.9881514925204247,
       "labels": [
         "coding",
         "reasoning",
@@ -118,54 +118,54 @@
       "per_class": {
         "coding": {
           "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "support": 6
+          "recall": 0.9411764705882353,
+          "f1": 0.9696969696969697,
+          "support": 51
         },
         "reasoning": {
-          "precision": 1.0,
+          "precision": 0.9622641509433962,
           "recall": 1.0,
-          "f1": 1.0,
-          "support": 5
+          "f1": 0.9807692307692307,
+          "support": 51
         },
         "security": {
-          "precision": 1.0,
+          "precision": 0.9807692307692307,
           "recall": 1.0,
-          "f1": 1.0,
-          "support": 5
+          "f1": 0.9902912621359223,
+          "support": 51
         },
         "simple": {
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0,
-          "support": 6
+          "support": 51
         },
         "summarization": {
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0,
-          "support": 5
+          "support": 51
         }
       },
       "confusion_matrix": [
         [
-          6,
+          48,
+          2,
+          1,
           0,
+          0
+        ],
+        [
+          0,
+          51,
           0,
           0,
           0
         ],
         [
           0,
-          5,
           0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          5,
+          51,
           0,
           0
         ],
@@ -173,7 +173,7 @@
           0,
           0,
           0,
-          6,
+          51,
           0
         ],
         [
@@ -181,7 +181,7 @@
           0,
           0,
           0,
-          5
+          51
         ]
       ]
     }

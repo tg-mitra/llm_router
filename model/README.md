@@ -36,7 +36,7 @@ from llm_router.classifier import TaskClassifier
 
 embedder = SentenceTransformerEmbedder("sentence-transformers/all-MiniLM-L6-v2")
 classifier = TaskClassifier.from_artifact(
-    "classifier.joblib", embedder=embedder, confidence_threshold=0.35
+    "classifier.joblib", embedder=embedder, confidence_threshold=0.45
 )
 
 result = classifier.predict("Explain what a Python decorator does")
@@ -45,22 +45,27 @@ print(result.category, result.confidence)
 
 ## Training data
 
-Trained on a ~175-example seed dataset (35 examples per category), see
-`training/build_dataset.py` and `data/training_data.jsonl` in the source
-repository. This is a **baseline** artifact intended to demonstrate the
-pipeline end-to-end; expand the training dataset for production-quality
-accuracy on out-of-distribution phrasing.
+Trained on a ~1700-example dataset (340 examples per category: 35
+hand-written seed examples plus ~305 template-generated ones), see
+`training/build_dataset.py`, `training/augment_dataset.py`, and
+`data/training_data.jsonl` in the source repository. Held out from
+training entirely: `data/regression_dataset.jsonl`, 25 hand-written
+prompts (5/category) used only to sanity-check releases and calibrate
+`confidence_threshold`.
 
 ## Evaluation
 
 See `metadata.json -> evaluation` for the full per-class precision/recall/F1
 and confusion matrix on the held-out validation and test splits. Summary:
 
-- Validation: accuracy 0.885, macro F1 0.882
-- Test: accuracy 1.000, macro F1 1.000 (small held-out split; expect lower
-  accuracy on prompts phrased differently from the training set -- see
-  `docs/configuration.md` in the source repo for confidence threshold
-  calibration guidance).
+- Validation: accuracy 0.996, macro F1 0.996
+- Test: accuracy 0.988, macro F1 0.988
+- Regression set (`data/regression_dataset.jsonl`, never seen in training):
+  24/25 classified confidently at `confidence_threshold: 0.45`, 24/24 of
+  those correct.
+
+See `docs/configuration.md` in the source repo for confidence-threshold
+calibration guidance as the dataset evolves.
 
 ## Reproducing
 
