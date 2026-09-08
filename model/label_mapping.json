@@ -1,0 +1,7 @@
+{
+  "coding": 0,
+  "reasoning": 1,
+  "security": 2,
+  "simple": 3,
+  "summarization": 4
+}

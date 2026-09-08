@@ -1,0 +1,25 @@
+{
+  "dataset": "C:\\apps\\utilities\\model_router\\main\\data\\training_data.jsonl",
+  "categories": [
+    "coding",
+    "reasoning",
+    "security",
+    "simple",
+    "summarization"
+  ],
+  "seed": 42,
+  "test_size": 0.15,
+  "val_size": 0.15,
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "classifier": "sklearn.linear_model.LogisticRegression",
+  "classifier_params": {
+    "max_iter": 1000,
+    "class_weight": "balanced",
+    "random_state": 42
+  },
+  "split_sizes": {
+    "train": 122,
+    "val": 26,
+    "test": 27
+  }
+}

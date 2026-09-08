@@ -1,0 +1,135 @@
+# Example llm_router configuration.
+# Copy to config.yml and adjust the model registry for your deployment.
+# Secrets (API keys, etc.) must never be stored in this file.
+
+embedding:
+  model: sentence-transformers/all-MiniLM-L6-v2
+  # cache_folder: null
+  # device: null   # e.g. "cpu", "cuda"
+
+classifier:
+  artifact: model/classifier.joblib
+  # Calibrated against the bundled baseline artifact (trained on a small
+  # ~175-example seed dataset, see data/training_data.jsonl). Softmax
+  # confidence over 5 balanced classes rarely exceeds 0.7 at this dataset
+  # size even when the top-1 prediction is correct. Re-calibrate this value
+  # against a held-out validation set whenever the training dataset or
+  # classifier changes (see docs/configuration.md).
+  confidence_threshold: 0.35
+  max_prompt_length: 4000
+
+categories:
+  - simple
+  - coding
+  - reasoning
+  - security
+  - summarization
+
+selection:
+  # "priority": deterministic, ranks strictly by ascending model priority.
+  # "weighted": normalized weighted score across priority/cost/latency/capability.
+  policy: weighted
+  weights:
+    priority: 0.40
+    cost: 0.30
+    latency: 0.20
+    capability: 0.10
+  # Optional static capability gates applied before ranking.
+  required_capabilities: {}
+  # required_capabilities:
+  #   tool_calling: true
+  #   min_context_window: 8000
+
+logging:
+  level: INFO
+  log_prompts: false
+
+models:
+  - id: fast-general
+    provider: provider_a
+    display_name: Fast General Model
+    categories:
+      - simple
+      - summarization
+    pricing:
+      input_per_1k_tokens: 0.01
+      output_per_1k_tokens: 0.02
+    performance:
+      expected_latency_ms: 400
+    capabilities:
+      context_window: 32000
+      tool_calling: true
+      structured_output: true
+    priority: 1
+    enabled: true
+
+  - id: code-specialist
+    provider: provider_b
+    display_name: Code Specialist Model
+    categories:
+      - coding
+      - reasoning
+    pricing:
+      input_per_1k_tokens: 0.05
+      output_per_1k_tokens: 0.10
+    performance:
+      expected_latency_ms: 900
+    capabilities:
+      context_window: 128000
+      tool_calling: true
+      structured_output: true
+    priority: 2
+    enabled: true
+
+  - id: deep-reasoner
+    provider: provider_c
+    display_name: Deep Reasoning Model
+    categories:
+      - reasoning
+      - security
+    pricing:
+      input_per_1k_tokens: 0.15
+      output_per_1k_tokens: 0.30
+    performance:
+      expected_latency_ms: 2200
+    capabilities:
+      context_window: 200000
+      tool_calling: true
+      structured_output: true
+    priority: 1
+    enabled: true
+
+  - id: security-auditor
+    provider: provider_d
+    display_name: Security Auditor Model
+    categories:
+      - security
+    pricing:
+      input_per_1k_tokens: 0.08
+      output_per_1k_tokens: 0.16
+    performance:
+      expected_latency_ms: 1200
+    capabilities:
+      context_window: 64000
+      tool_calling: false
+      structured_output: true
+    priority: 1
+    enabled: true
+
+  - id: budget-summarizer
+    provider: provider_a
+    display_name: Budget Summarizer Model
+    categories:
+      - summarization
+      - simple
+    pricing:
+      input_per_1k_tokens: 0.002
+      output_per_1k_tokens: 0.004
+    performance:
+      expected_latency_ms: 300
+    capabilities:
+      context_window: 16000
+      tool_calling: false
+      structured_output: false
+    priority: 3
+    enabled: true

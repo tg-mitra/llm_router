@@ -1,0 +1,175 @@
+{"text": "What is 2 plus 2?", "label": "simple"}
+{"text": "What is the capital of France?", "label": "simple"}
+{"text": "How many days are in a week?", "label": "simple"}
+{"text": "What color is the sky on a clear day?", "label": "simple"}
+{"text": "What is the boiling point of water in Celsius?", "label": "simple"}
+{"text": "Convert 10 kilometers to miles.", "label": "simple"}
+{"text": "What time zone is London in?", "label": "simple"}
+{"text": "What is the square root of 81?", "label": "simple"}
+{"text": "Who wrote Romeo and Juliet?", "label": "simple"}
+{"text": "What year did World War II end?", "label": "simple"}
+{"text": "How many continents are there?", "label": "simple"}
+{"text": "What is the chemical symbol for gold?", "label": "simple"}
+{"text": "What is 15 percent of 200?", "label": "simple"}
+{"text": "How many minutes are in three hours?", "label": "simple"}
+{"text": "What is the tallest mountain in the world?", "label": "simple"}
+{"text": "Name the planets in order from the sun.", "label": "simple"}
+{"text": "What is the currency used in Japan?", "label": "simple"}
+{"text": "How do you say hello in Spanish?", "label": "simple"}
+{"text": "What is the freezing point of water in Fahrenheit?", "label": "simple"}
+{"text": "How many sides does a hexagon have?", "label": "simple"}
+{"text": "What is the largest ocean on Earth?", "label": "simple"}
+{"text": "Who is the current president of the United States?", "label": "simple"}
+{"text": "What is 12 multiplied by 8?", "label": "simple"}
+{"text": "How many bones are in the human body?", "label": "simple"}
+{"text": "What is the opposite of hot?", "label": "simple"}
+{"text": "Spell the word necessary.", "label": "simple"}
+{"text": "What day comes after Wednesday?", "label": "simple"}
+{"text": "What is the plural of mouse?", "label": "simple"}
+{"text": "How many legs does a spider have?", "label": "simple"}
+{"text": "What is the capital of Australia?", "label": "simple"}
+{"text": "Convert 5 feet to inches.", "label": "simple"}
+{"text": "What is the smallest prime number?", "label": "simple"}
+{"text": "Name three primary colors.", "label": "simple"}
+{"text": "What language is spoken in Brazil?", "label": "simple"}
+{"text": "What is today's date format in ISO 8601?", "label": "simple"}
+{"text": "Write a Python function to reverse a string.", "label": "coding"}
+{"text": "Explain what a Python decorator does.", "label": "coding"}
+{"text": "Why is my React component re-rendering infinitely?", "label": "coding"}
+{"text": "Fix this null pointer exception in my Java code.", "label": "coding"}
+{"text": "Write a SQL query to find duplicate rows in a table.", "label": "coding"}
+{"text": "How do I implement a binary search tree in C++?", "label": "coding"}
+{"text": "Convert this synchronous function to use async/await.", "label": "coding"}
+{"text": "Debug this segmentation fault in my C program.", "label": "coding"}
+{"text": "Write unit tests for this Flask endpoint.", "label": "coding"}
+{"text": "What is the difference between a list and a tuple in Python?", "label": "coding"}
+{"text": "Refactor this function to remove code duplication.", "label": "coding"}
+{"text": "How do I set up a REST API with Express.js?", "label": "coding"}
+{"text": "Explain the time complexity of quicksort.", "label": "coding"}
+{"text": "Write a regex to validate an email address.", "label": "coding"}
+{"text": "Why does my Docker container keep crashing on startup?", "label": "coding"}
+{"text": "Implement a singleton pattern in TypeScript.", "label": "coding"}
+{"text": "How do I fix this merge conflict in git?", "label": "coding"}
+{"text": "Write a function to merge two sorted linked lists.", "label": "coding"}
+{"text": "What does this stack trace mean in my Node.js app?", "label": "coding"}
+{"text": "Explain how garbage collection works in Java.", "label": "coding"}
+{"text": "Write a Bash script to back up a directory.", "label": "coding"}
+{"text": "How do I optimize this slow SQL join?", "label": "coding"}
+{"text": "Implement memoization for this recursive function.", "label": "coding"}
+{"text": "Why is my CSS flexbox layout not centering the div?", "label": "coding"}
+{"text": "Write a Dockerfile for a Python Flask application.", "label": "coding"}
+{"text": "Explain the difference between REST and GraphQL APIs.", "label": "coding"}
+{"text": "How do I handle exceptions in a try-except block in Python?", "label": "coding"}
+{"text": "Write a function to check if a binary tree is balanced.", "label": "coding"}
+{"text": "What is dependency injection and how do I use it in Spring?", "label": "coding"}
+{"text": "Convert this array of objects into a CSV file in JavaScript.", "label": "coding"}
+{"text": "How do I set up unit testing with pytest?", "label": "coding"}
+{"text": "Write an algorithm to detect a cycle in a linked list.", "label": "coding"}
+{"text": "Explain how closures work in JavaScript.", "label": "coding"}
+{"text": "Fix the off-by-one error in this for loop.", "label": "coding"}
+{"text": "How do I connect to a PostgreSQL database using psycopg2?", "label": "coding"}
+{"text": "Explain the trade-offs between microservices and a monolithic architecture.", "label": "reasoning"}
+{"text": "If all cats are mammals and all mammals are animals, are all cats animals?", "label": "reasoning"}
+{"text": "A train leaves station A at 60 mph and another leaves station B at 40 mph toward each other; when do they meet?", "label": "reasoning"}
+{"text": "Compare the pros and cons of remote work versus in-office work.", "label": "reasoning"}
+{"text": "Walk me through the logic behind the Monty Hall problem.", "label": "reasoning"}
+{"text": "Why might a company choose to build in-house software instead of buying an off-the-shelf solution?", "label": "reasoning"}
+{"text": "If it takes 5 machines 5 minutes to make 5 widgets, how long would 100 machines take to make 100 widgets?", "label": "reasoning"}
+{"text": "Analyze the causes that led to the fall of the Roman Empire.", "label": "reasoning"}
+{"text": "What are the second-order effects of raising interest rates?", "label": "reasoning"}
+{"text": "Evaluate whether a startup should prioritize growth or profitability first.", "label": "reasoning"}
+{"text": "Explain why correlation does not imply causation with an example.", "label": "reasoning"}
+{"text": "Three friends split a bill unevenly; work out who owes what given these constraints.", "label": "reasoning"}
+{"text": "What are the ethical implications of using AI in hiring decisions?", "label": "reasoning"}
+{"text": "Compare the long-term consequences of nuclear energy versus fossil fuels.", "label": "reasoning"}
+{"text": "If a factory increases production by 20 percent but demand only grows by 10 percent, what happens to inventory?", "label": "reasoning"}
+{"text": "Explain the reasoning behind the prisoner's dilemma and its real-world applications.", "label": "reasoning"}
+{"text": "Weigh the trade-offs between strict consistency and eventual consistency in distributed systems.", "label": "reasoning"}
+{"text": "Given rising costs and flat revenue, what strategic options does a business have?", "label": "reasoning"}
+{"text": "Why do some economists argue that minimum wage increases can reduce entry-level jobs?", "label": "reasoning"}
+{"text": "Explain the logic puzzle of the two guards, one who always lies and one who always tells the truth.", "label": "reasoning"}
+{"text": "What factors should be weighed when deciding between renting and buying a home?", "label": "reasoning"}
+{"text": "Analyze why a well-tested system can still fail in production.", "label": "reasoning"}
+{"text": "If the average of five numbers is 20 and four of them are known, find the fifth.", "label": "reasoning"}
+{"text": "Discuss the implications of automation on the future of manual labor jobs.", "label": "reasoning"}
+{"text": "Explain the reasoning behind why diversifying a stock portfolio reduces risk.", "label": "reasoning"}
+{"text": "Two trains, a river crossing puzzle, and constraints, figure out the optimal order of crossing.", "label": "reasoning"}
+{"text": "Why might a team choose eventual consistency over strong consistency for a shopping cart service?", "label": "reasoning"}
+{"text": "Assess the long-term risks of relying on a single cloud provider.", "label": "reasoning"}
+{"text": "Explain step by step how compound interest causes exponential growth.", "label": "reasoning"}
+{"text": "What is the reasoning behind Occam's razor and when might it fail?", "label": "reasoning"}
+{"text": "Given a fixed budget, how should a team prioritize competing feature requests?", "label": "reasoning"}
+{"text": "Explain why a symptom-based diagnosis can sometimes miss the root cause of a system failure.", "label": "reasoning"}
+{"text": "Compare the trade-offs of a greedy algorithm versus dynamic programming for this optimization problem.", "label": "reasoning"}
+{"text": "Why does doubling a server's capacity not always double its throughput?", "label": "reasoning"}
+{"text": "Analyze the chain of events that could cause a cascading failure in a distributed system.", "label": "reasoning"}
+{"text": "Find security weaknesses in this login authentication code.", "label": "security"}
+{"text": "Is this API endpoint vulnerable to SQL injection?", "label": "security"}
+{"text": "Explain how a cross-site scripting attack could exploit this input field.", "label": "security"}
+{"text": "Review this code for potential command injection vulnerabilities.", "label": "security"}
+{"text": "What are best practices for securely storing user passwords?", "label": "security"}
+{"text": "Analyze this network configuration for open ports that could be exploited.", "label": "security"}
+{"text": "How would an attacker exploit an insecure deserialization vulnerability?", "label": "security"}
+{"text": "Perform a threat model for this microservices architecture.", "label": "security"}
+{"text": "Is this JWT implementation vulnerable to token forgery?", "label": "security"}
+{"text": "Explain how a buffer overflow attack works against this C function.", "label": "security"}
+{"text": "What security headers should this web application add to prevent clickjacking?", "label": "security"}
+{"text": "Audit this Terraform configuration for overly permissive IAM policies.", "label": "security"}
+{"text": "How can this application be hardened against CSRF attacks?", "label": "security"}
+{"text": "Identify vulnerabilities in this file upload handler.", "label": "security"}
+{"text": "Explain how an attacker could perform a man-in-the-middle attack on this connection.", "label": "security"}
+{"text": "Review this Dockerfile for insecure practices like running as root.", "label": "security"}
+{"text": "What is the risk of storing API keys directly in this configuration file?", "label": "security"}
+{"text": "Explain how a directory traversal vulnerability could be exploited here.", "label": "security"}
+{"text": "Assess this password reset flow for account takeover vulnerabilities.", "label": "security"}
+{"text": "How would you detect and mitigate a brute-force login attack?", "label": "security"}
+{"text": "Explain the risk of using outdated TLS versions on this server.", "label": "security"}
+{"text": "Review this smart contract for reentrancy vulnerabilities.", "label": "security"}
+{"text": "Is this session management implementation vulnerable to session fixation?", "label": "security"}
+{"text": "Explain how privilege escalation could occur given these Linux file permissions.", "label": "security"}
+{"text": "What are the security implications of disabling certificate validation in this HTTP client?", "label": "security"}
+{"text": "Identify potential secrets accidentally committed in this codebase.", "label": "security"}
+{"text": "How can this GraphQL API be protected against introspection abuse?", "label": "security"}
+{"text": "Explain how an XML external entity (XXE) attack could target this parser.", "label": "security"}
+{"text": "Review this OAuth2 flow for authorization code interception risks.", "label": "security"}
+{"text": "What mitigations prevent a denial-of-service attack against this rate-limited endpoint?", "label": "security"}
+{"text": "Explain how insecure deserialization in this Python pickle usage could lead to remote code execution.", "label": "security"}
+{"text": "Assess this Kubernetes RBAC configuration for excessive permissions.", "label": "security"}
+{"text": "How would a penetration tester approach testing this login form for vulnerabilities?", "label": "security"}
+{"text": "Explain the risk of using MD5 for password hashing in this system.", "label": "security"}
+{"text": "Review this CORS configuration for overly permissive origins.", "label": "security"}
+{"text": "Summarize this article in three sentences.", "label": "summarization"}
+{"text": "Give me a TL;DR of this research paper.", "label": "summarization"}
+{"text": "Condense these meeting notes into key action items.", "label": "summarization"}
+{"text": "Summarize the main points of this quarterly earnings report.", "label": "summarization"}
+{"text": "Provide a one-paragraph summary of this legal contract.", "label": "summarization"}
+{"text": "Summarize the plot of this novel in a few sentences.", "label": "summarization"}
+{"text": "Extract the key takeaways from this customer feedback survey.", "label": "summarization"}
+{"text": "Summarize this email thread into a short update for my manager.", "label": "summarization"}
+{"text": "Give a brief overview of this technical whitepaper.", "label": "summarization"}
+{"text": "Summarize the changes in this changelog since the last release.", "label": "summarization"}
+{"text": "Condense this 10-page report into an executive summary.", "label": "summarization"}
+{"text": "Summarize the key findings from this scientific study.", "label": "summarization"}
+{"text": "Provide a short summary of this news article.", "label": "summarization"}
+{"text": "Summarize this podcast transcript into the main discussion points.", "label": "summarization"}
+{"text": "Give me the highlights of this product documentation.", "label": "summarization"}
+{"text": "Summarize this court ruling in plain language.", "label": "summarization"}
+{"text": "Condense this long support ticket thread into the core issue.", "label": "summarization"}
+{"text": "Summarize the key differences described in this comparison document.", "label": "summarization"}
+{"text": "Provide a brief recap of this project status update.", "label": "summarization"}
+{"text": "Summarize this book chapter into its central argument.", "label": "summarization"}
+{"text": "Give a short summary of this interview transcript.", "label": "summarization"}
+{"text": "Summarize the terms and conditions of this agreement.", "label": "summarization"}
+{"text": "Condense these chat logs into a summary of what was decided.", "label": "summarization"}
+{"text": "Summarize the results section of this academic paper.", "label": "summarization"}
+{"text": "Provide an executive summary of this business proposal.", "label": "summarization"}
+{"text": "Summarize this GitHub pull request description and its changes.", "label": "summarization"}
+{"text": "Give a concise overview of this policy document.", "label": "summarization"}
+{"text": "Summarize the key events described in this historical account.", "label": "summarization"}
+{"text": "Condense this customer complaint into a one-line issue description.", "label": "summarization"}
+{"text": "Summarize this webinar transcript into three key insights.", "label": "summarization"}
+{"text": "Provide a brief summary of this financial statement.", "label": "summarization"}
+{"text": "Summarize the main arguments in this opinion essay.", "label": "summarization"}
+{"text": "Give a short digest of today's top news headlines.", "label": "summarization"}
+{"text": "Summarize this software release notes document.", "label": "summarization"}
+{"text": "Condense this lengthy email into two sentences.", "label": "summarization"}

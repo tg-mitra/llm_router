@@ -1,0 +1,18 @@
+# Python environment / virtual environment files
+.env
+.venv
+venv/
+env/
+ENV/
+.python-version
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Packaging / test artifacts
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.coverage
+htmlcov/

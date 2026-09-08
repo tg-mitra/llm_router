@@ -1,0 +1,223 @@
+"""One-off helper used to generate data/training_data.jsonl from literal
+Python lists. Not part of the public API or the training pipeline itself --
+kept only so the seed dataset is reproducible/auditable. Safe to re-run; it
+overwrites the dataset deterministically.
+"""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+SIMPLE = [
+    "What is 2 plus 2?",
+    "What is the capital of France?",
+    "How many days are in a week?",
+    "What color is the sky on a clear day?",
+    "What is the boiling point of water in Celsius?",
+    "Convert 10 kilometers to miles.",
+    "What time zone is London in?",
+    "What is the square root of 81?",
+    "Who wrote Romeo and Juliet?",
+    "What year did World War II end?",
+    "How many continents are there?",
+    "What is the chemical symbol for gold?",
+    "What is 15 percent of 200?",
+    "How many minutes are in three hours?",
+    "What is the tallest mountain in the world?",
+    "Name the planets in order from the sun.",
+    "What is the currency used in Japan?",
+    "How do you say hello in Spanish?",
+    "What is the freezing point of water in Fahrenheit?",
+    "How many sides does a hexagon have?",
+    "What is the largest ocean on Earth?",
+    "Who is the current president of the United States?",
+    "What is 12 multiplied by 8?",
+    "How many bones are in the human body?",
+    "What is the opposite of hot?",
+    "Spell the word necessary.",
+    "What day comes after Wednesday?",
+    "What is the plural of mouse?",
+    "How many legs does a spider have?",
+    "What is the capital of Australia?",
+    "Convert 5 feet to inches.",
+    "What is the smallest prime number?",
+    "Name three primary colors.",
+    "What language is spoken in Brazil?",
+    "What is today's date format in ISO 8601?",
+]
+
+CODING = [
+    "Write a Python function to reverse a string.",
+    "Explain what a Python decorator does.",
+    "Why is my React component re-rendering infinitely?",
+    "Fix this null pointer exception in my Java code.",
+    "Write a SQL query to find duplicate rows in a table.",
+    "How do I implement a binary search tree in C++?",
+    "Convert this synchronous function to use async/await.",
+    "Debug this segmentation fault in my C program.",
+    "Write unit tests for this Flask endpoint.",
+    "What is the difference between a list and a tuple in Python?",
+    "Refactor this function to remove code duplication.",
+    "How do I set up a REST API with Express.js?",
+    "Explain the time complexity of quicksort.",
+    "Write a regex to validate an email address.",
+    "Why does my Docker container keep crashing on startup?",
+    "Implement a singleton pattern in TypeScript.",
+    "How do I fix this merge conflict in git?",
+    "Write a function to merge two sorted linked lists.",
+    "What does this stack trace mean in my Node.js app?",
+    "Explain how garbage collection works in Java.",
+    "Write a Bash script to back up a directory.",
+    "How do I optimize this slow SQL join?",
+    "Implement memoization for this recursive function.",
+    "Why is my CSS flexbox layout not centering the div?",
+    "Write a Dockerfile for a Python Flask application.",
+    "Explain the difference between REST and GraphQL APIs.",
+    "How do I handle exceptions in a try-except block in Python?",
+    "Write a function to check if a binary tree is balanced.",
+    "What is dependency injection and how do I use it in Spring?",
+    "Convert this array of objects into a CSV file in JavaScript.",
+    "How do I set up unit testing with pytest?",
+    "Write an algorithm to detect a cycle in a linked list.",
+    "Explain how closures work in JavaScript.",
+    "Fix the off-by-one error in this for loop.",
+    "How do I connect to a PostgreSQL database using psycopg2?",
+]
+
+REASONING = [
+    "Explain the trade-offs between microservices and a monolithic architecture.",
+    "If all cats are mammals and all mammals are animals, are all cats animals?",
+    "A train leaves station A at 60 mph and another leaves station B at 40 mph toward each other; when do they meet?",
+    "Compare the pros and cons of remote work versus in-office work.",
+    "Walk me through the logic behind the Monty Hall problem.",
+    "Why might a company choose to build in-house software instead of buying an off-the-shelf solution?",
+    "If it takes 5 machines 5 minutes to make 5 widgets, how long would 100 machines take to make 100 widgets?",
+    "Analyze the causes that led to the fall of the Roman Empire.",
+    "What are the second-order effects of raising interest rates?",
+    "Evaluate whether a startup should prioritize growth or profitability first.",
+    "Explain why correlation does not imply causation with an example.",
+    "Three friends split a bill unevenly; work out who owes what given these constraints.",
+    "What are the ethical implications of using AI in hiring decisions?",
+    "Compare the long-term consequences of nuclear energy versus fossil fuels.",
+    "If a factory increases production by 20 percent but demand only grows by 10 percent, what happens to inventory?",
+    "Explain the reasoning behind the prisoner's dilemma and its real-world applications.",
+    "Weigh the trade-offs between strict consistency and eventual consistency in distributed systems.",
+    "Given rising costs and flat revenue, what strategic options does a business have?",
+    "Why do some economists argue that minimum wage increases can reduce entry-level jobs?",
+    "Explain the logic puzzle of the two guards, one who always lies and one who always tells the truth.",
+    "What factors should be weighed when deciding between renting and buying a home?",
+    "Analyze why a well-tested system can still fail in production.",
+    "If the average of five numbers is 20 and four of them are known, find the fifth.",
+    "Discuss the implications of automation on the future of manual labor jobs.",
+    "Explain the reasoning behind why diversifying a stock portfolio reduces risk.",
+    "Two trains, a river crossing puzzle, and constraints, figure out the optimal order of crossing.",
+    "Why might a team choose eventual consistency over strong consistency for a shopping cart service?",
+    "Assess the long-term risks of relying on a single cloud provider.",
+    "Explain step by step how compound interest causes exponential growth.",
+    "What is the reasoning behind Occam's razor and when might it fail?",
+    "Given a fixed budget, how should a team prioritize competing feature requests?",
+    "Explain why a symptom-based diagnosis can sometimes miss the root cause of a system failure.",
+    "Compare the trade-offs of a greedy algorithm versus dynamic programming for this optimization problem.",
+    "Why does doubling a server's capacity not always double its throughput?",
+    "Analyze the chain of events that could cause a cascading failure in a distributed system.",
+]
+
+SECURITY = [
+    "Find security weaknesses in this login authentication code.",
+    "Is this API endpoint vulnerable to SQL injection?",
+    "Explain how a cross-site scripting attack could exploit this input field.",
+    "Review this code for potential command injection vulnerabilities.",
+    "What are best practices for securely storing user passwords?",
+    "Analyze this network configuration for open ports that could be exploited.",
+    "How would an attacker exploit an insecure deserialization vulnerability?",
+    "Perform a threat model for this microservices architecture.",
+    "Is this JWT implementation vulnerable to token forgery?",
+    "Explain how a buffer overflow attack works against this C function.",
+    "What security headers should this web application add to prevent clickjacking?",
+    "Audit this Terraform configuration for overly permissive IAM policies.",
+    "How can this application be hardened against CSRF attacks?",
+    "Identify vulnerabilities in this file upload handler.",
+    "Explain how an attacker could perform a man-in-the-middle attack on this connection.",
+    "Review this Dockerfile for insecure practices like running as root.",
+    "What is the risk of storing API keys directly in this configuration file?",
+    "Explain how a directory traversal vulnerability could be exploited here.",
+    "Assess this password reset flow for account takeover vulnerabilities.",
+    "How would you detect and mitigate a brute-force login attack?",
+    "Explain the risk of using outdated TLS versions on this server.",
+    "Review this smart contract for reentrancy vulnerabilities.",
+    "Is this session management implementation vulnerable to session fixation?",
+    "Explain how privilege escalation could occur given these Linux file permissions.",
+    "What are the security implications of disabling certificate validation in this HTTP client?",
+    "Identify potential secrets accidentally committed in this codebase.",
+    "How can this GraphQL API be protected against introspection abuse?",
+    "Explain how an XML external entity (XXE) attack could target this parser.",
+    "Review this OAuth2 flow for authorization code interception risks.",
+    "What mitigations prevent a denial-of-service attack against this rate-limited endpoint?",
+    "Explain how insecure deserialization in this Python pickle usage could lead to remote code execution.",
+    "Assess this Kubernetes RBAC configuration for excessive permissions.",
+    "How would a penetration tester approach testing this login form for vulnerabilities?",
+    "Explain the risk of using MD5 for password hashing in this system.",
+    "Review this CORS configuration for overly permissive origins.",
+]
+
+SUMMARIZATION = [
+    "Summarize this article in three sentences.",
+    "Give me a TL;DR of this research paper.",
+    "Condense these meeting notes into key action items.",
+    "Summarize the main points of this quarterly earnings report.",
+    "Provide a one-paragraph summary of this legal contract.",
+    "Summarize the plot of this novel in a few sentences.",
+    "Extract the key takeaways from this customer feedback survey.",
+    "Summarize this email thread into a short update for my manager.",
+    "Give a brief overview of this technical whitepaper.",
+    "Summarize the changes in this changelog since the last release.",
+    "Condense this 10-page report into an executive summary.",
+    "Summarize the key findings from this scientific study.",
+    "Provide a short summary of this news article.",
+    "Summarize this podcast transcript into the main discussion points.",
+    "Give me the highlights of this product documentation.",
+    "Summarize this court ruling in plain language.",
+    "Condense this long support ticket thread into the core issue.",
+    "Summarize the key differences described in this comparison document.",
+    "Provide a brief recap of this project status update.",
+    "Summarize this book chapter into its central argument.",
+    "Give a short summary of this interview transcript.",
+    "Summarize the terms and conditions of this agreement.",
+    "Condense these chat logs into a summary of what was decided.",
+    "Summarize the results section of this academic paper.",
+    "Provide an executive summary of this business proposal.",
+    "Summarize this GitHub pull request description and its changes.",
+    "Give a concise overview of this policy document.",
+    "Summarize the key events described in this historical account.",
+    "Condense this customer complaint into a one-line issue description.",
+    "Summarize this webinar transcript into three key insights.",
+    "Provide a brief summary of this financial statement.",
+    "Summarize the main arguments in this opinion essay.",
+    "Give a short digest of today's top news headlines.",
+    "Summarize this software release notes document.",
+    "Condense this lengthy email into two sentences.",
+]
+
+LABELED = {
+    "simple": SIMPLE,
+    "coding": CODING,
+    "reasoning": REASONING,
+    "security": SECURITY,
+    "summarization": SUMMARIZATION,
+}
+
+
+def main() -> None:
+    out_path = Path(__file__).resolve().parent.parent / "data" / "training_data.jsonl"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with out_path.open("w", encoding="utf-8") as fh:
+        for label, texts in LABELED.items():
+            for text in texts:
+                fh.write(json.dumps({"text": text, "label": label}) + "\n")
+    total = sum(len(v) for v in LABELED.values())
+    print(f"wrote {total} examples to {out_path}")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,25 @@
+{"text": "What is the capital of Canada?", "label": "simple"}
+{"text": "How many hours are in two days?", "label": "simple"}
+{"text": "What is 9 times 7?", "label": "simple"}
+{"text": "What is the opposite of fast?", "label": "simple"}
+{"text": "Who painted the Mona Lisa?", "label": "simple"}
+{"text": "Write a function to check if a number is prime.", "label": "coding"}
+{"text": "Why is my for loop causing an IndexError in Python?", "label": "coding"}
+{"text": "Explain how to use async generators in Python.", "label": "coding"}
+{"text": "Write a SQL query to count orders per customer.", "label": "coding"}
+{"text": "How do I fix a circular import error in Python?", "label": "coding"}
+{"text": "Compare the trade-offs of buying versus leasing a car over five years.", "label": "reasoning"}
+{"text": "Why did the project's timeline slip even though every task finished on schedule individually?", "label": "reasoning"}
+{"text": "Explain the reasoning behind why a larger sample size reduces statistical uncertainty.", "label": "reasoning"}
+{"text": "If two pipes fill a tank in 4 and 6 hours respectively, how long together?", "label": "reasoning"}
+{"text": "Evaluate the trade-offs between horizontal and vertical scaling for this service.", "label": "reasoning"}
+{"text": "Review this password reset endpoint for account enumeration vulnerabilities.", "label": "security"}
+{"text": "Is this Express.js middleware vulnerable to prototype pollution?", "label": "security"}
+{"text": "Explain how an insecure CORS policy could leak authenticated data.", "label": "security"}
+{"text": "Audit this AWS S3 bucket policy for public read access risks.", "label": "security"}
+{"text": "How would an attacker exploit a stored XSS vulnerability in this comment form?", "label": "security"}
+{"text": "Summarize this incident postmortem into three key lessons learned.", "label": "summarization"}
+{"text": "Give me a short digest of this API changelog.", "label": "summarization"}
+{"text": "Condense this customer call transcript into the main complaint and resolution.", "label": "summarization"}
+{"text": "Summarize the key clauses in this vendor contract.", "label": "summarization"}
+{"text": "Provide a two-sentence summary of this design document.", "label": "summarization"}

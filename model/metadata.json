@@ -1,0 +1,189 @@
+{
+  "classifier_type": "sklearn.linear_model.LogisticRegression",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "label_set": [
+    "coding",
+    "reasoning",
+    "security",
+    "simple",
+    "summarization"
+  ],
+  "training_dataset_version": "a6340319ae59c696",
+  "training_timestamp": "2026-09-08T10:04:48.561387+00:00",
+  "python_version": "3.14.7",
+  "dependency_versions": {
+    "scikit-learn": "1.9.0",
+    "sentence-transformers": "6.0.1",
+    "numpy": "2.5.3",
+    "joblib": "1.6.0",
+    "torch": "2.14.0"
+  },
+  "random_seed": 42,
+  "acceptance_criteria": {
+    "min_accuracy": 0.75,
+    "min_macro_f1": 0.7,
+    "met": true
+  },
+  "evaluation": {
+    "validation": {
+      "accuracy": 0.8846153846153846,
+      "macro_f1": 0.8823931623931625,
+      "labels": [
+        "coding",
+        "reasoning",
+        "security",
+        "simple",
+        "summarization"
+      ],
+      "per_class": {
+        "coding": {
+          "precision": 0.8,
+          "recall": 0.8,
+          "f1": 0.8,
+          "support": 5
+        },
+        "reasoning": {
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.8888888888888888,
+          "support": 5
+        },
+        "security": {
+          "precision": 0.8571428571428571,
+          "recall": 1.0,
+          "f1": 0.9230769230769231,
+          "support": 6
+        },
+        "simple": {
+          "precision": 0.8,
+          "recall": 0.8,
+          "f1": 0.8,
+          "support": 5
+        },
+        "summarization": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        }
+      },
+      "confusion_matrix": [
+        [
+          4,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          4,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          6,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          5
+        ]
+      ]
+    },
+    "test": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "labels": [
+        "coding",
+        "reasoning",
+        "security",
+        "simple",
+        "summarization"
+      ],
+      "per_class": {
+        "coding": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 6
+        },
+        "reasoning": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "security": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "simple": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 6
+        },
+        "summarization": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        }
+      },
+      "confusion_matrix": [
+        [
+          6,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          5,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          6,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          5
+        ]
+      ]
+    }
+  }
+}
