@@ -41,8 +41,8 @@ cp config.example.yml config.yml
 # 6. Run the test suite
 python -m pytest
 
-# 7. Smoke-test the router directly
-python -c "from llm_router import Router; r = Router.from_config('config.yml'); print(r.route('Write a function to reverse a string'))"
+# 7. Smoke-test the router directly (loads HF_TOKEN from .env if set, see below)
+python examples/quickstart.py "Write a function to reverse a string"
 ```
 
 Without activating the venv, prefix each command with its interpreter
@@ -103,6 +103,13 @@ model" -- both are reported via `result.reason` with `result.model_id is
 None`. It does raise typed exceptions (`llm_router.InvalidPromptError`,
 `ConfigurationError`, etc.) for actionable misuse -- see
 [docs/architecture.md](docs/architecture.md#error-handling-philosophy).
+
+The `llm_router` package itself never reads `.env` or environment secrets
+(see [docs/architecture.md](docs/architecture.md)) -- a plain script like
+the one above won't pick up `HF_TOKEN` and may hit Hugging Face Hub's
+unauthenticated-request rate limit on first download. `examples/quickstart.py`
+loads `.env` before calling `Router.from_config(...)`; copy that pattern in
+your own host application, or just export `HF_TOKEN` in your shell.
 
 ### Lower-level API
 
@@ -214,9 +221,10 @@ model_router/
 ├── pyproject.toml
 ├── config.example.yml
 ├── src/llm_router/       # the library
-├── training/             # offline training pipeline (train.py, evaluate.py, dataset_validation.py)
+├── training/             # offline training pipeline (train.py, evaluate.py, dataset_validation.py, augment_dataset.py)
 ├── data/                 # training_data.jsonl, regression_dataset.jsonl
 ├── model/                # classifier.joblib + metadata (trained artifact)
+├── examples/              # quickstart.py: runnable usage example (loads .env)
 ├── tests/{unit,integration}/
 └── docs/                 # architecture.md, configuration.md
 ```

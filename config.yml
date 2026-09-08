@@ -9,13 +9,14 @@ embedding:
 
 classifier:
   artifact: model/classifier.joblib
-  # Calibrated against the bundled baseline artifact (trained on a small
-  # ~175-example seed dataset, see data/training_data.jsonl). Softmax
-  # confidence over 5 balanced classes rarely exceeds 0.7 at this dataset
-  # size even when the top-1 prediction is correct. Re-calibrate this value
-  # against a held-out validation set whenever the training dataset or
-  # classifier changes (see docs/configuration.md).
-  confidence_threshold: 0.35
+  # Calibrated against the bundled artifact (trained on a ~1700-example
+  # dataset, see data/training_data.jsonl). Every "confident" prediction on
+  # the regression set (data/regression_dataset.jsonl) is correct at this
+  # threshold, with a small margin above the point where recall starts
+  # dropping. Re-calibrate this value against a held-out validation set
+  # whenever the training dataset or classifier changes (see
+  # docs/configuration.md).
+  confidence_threshold: 0.45
   max_prompt_length: 4000
 
 categories:
