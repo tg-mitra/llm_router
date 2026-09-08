@@ -137,8 +137,10 @@ file.
 
 ## Training the classifier
 
-A baseline classifier artifact is checked into `model/` (trained on the
-~175-example seed dataset in `data/training_data.jsonl`). To retrain:
+A classifier artifact is checked into `model/` (trained on the ~1700-example
+dataset in `data/training_data.jsonl`: 35 hand-written examples per
+category plus ~305 template-generated ones per category, see
+`training/build_dataset.py` and `training/augment_dataset.py`). To retrain:
 
 Optional: copy `.env.example` to `.env` and set `HF_TOKEN` (a Hugging Face
 "Read" token) to avoid unauthenticated-request rate limits when downloading
@@ -166,11 +168,18 @@ passed) if test-set accuracy/macro-F1 fall below `--min-accuracy` /
 hardcoded constants, per the "don't embed arbitrary release thresholds in
 code" requirement.
 
-To grow the dataset, add more `{"text": ..., "label": ...}` lines to
-`data/training_data.jsonl` (or a copy) -- see
-`training/build_dataset.py` for how the seed set was generated, and
-`training/dataset_validation.py` for the validation rules a new dataset
-must pass.
+To grow the dataset further, either add more `{"text": ..., "label": ...}`
+lines to `data/training_data.jsonl` by hand, or extend the template/filler
+lists in `training/augment_dataset.py` and rerun it:
+
+```bash
+python training/augment_dataset.py --new-per-category 305   # regenerates data/training_data.jsonl
+```
+
+It deduplicates against the hand-written seed set and against
+`data/regression_dataset.jsonl` (so the regression set never leaks into
+training) before writing. See `training/dataset_validation.py` for the
+validation rules any dataset -- hand-written or generated -- must pass.
 
 ## Hugging Face distribution
 
