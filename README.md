@@ -234,5 +234,4 @@ model_router/
 Model availability/uptime monitoring, active health checks, circuit
 breakers, retry/failover, an API serving layer (FastAPI etc.), direct LLM
 invocation, agent orchestration, and secrets/API-key management all belong
-to the host application or a separate health-monitor package -- see
-`health_monitor_requirements.MD` at the repository root.
+to the host application or a separate health-monitor package.
